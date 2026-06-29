@@ -62,3 +62,17 @@ pub struct Track {
     pub created_at: Option<NaiveDateTime>,
     pub updated_at: Option<NaiveDateTime>,
 }
+
+// AudioFile Model
+#[derive(Debug, Serialize, Deserialize, FromRow)]
+pub struct AudioFile {
+    pub id: Uuid,
+    pub track_id: Option<Uuid>,
+    pub total_chunks: i32,
+    pub uploaded_chunks: i32,
+    pub current_chunk: i32,
+    pub chunk_path: Option<String>,
+    pub upload_status: Option<String>,
+    pub created_at: Option<NaiveDateTime>,
+    pub updated_at: Option<NaiveDateTime>,
+}
