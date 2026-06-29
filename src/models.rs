@@ -47,3 +47,18 @@ pub struct User {
     pub created_at: Option<NaiveDateTime>,
     pub updated_at: Option<NaiveDateTime>,
 }
+
+// Track Model
+#[derive(Debug, Serialize, Deserialize, FromRow)]
+pub struct Track {
+    pub id: Uuid,
+    pub user_id: Option<Uuid>,
+    pub title: Option<String>,
+    pub artist: Option<String>,
+    pub duration: Duration,
+    pub file_name: Option<String>,
+    pub upload_status: Option<String>,
+    pub thumbnail_name: Option<String>,
+    pub created_at: Option<NaiveDateTime>,
+    pub updated_at: Option<NaiveDateTime>,
+}
