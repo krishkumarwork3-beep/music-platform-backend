@@ -23,3 +23,15 @@ CREATE TABLE tracks (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+-- Audio Files Table
+CREATE TABLE audio_files (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    track_id UUID REFERENCES tracks(id) ON DELETE CASCADE,
+    total_chunks INTEGER NOT NULL,
+    uploaded_chunks INTEGER NOT NULL DEFAULT 0,
+    current_chunk INTEGER NOT NULL,
+    chunk_path TEXT NOT NULL,
+    upload_status VARCHAR(50) DEFAULT 'incomplete',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
