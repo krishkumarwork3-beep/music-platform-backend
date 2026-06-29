@@ -76,3 +76,22 @@ pub struct AudioFile {
     pub created_at: Option<NaiveDateTime>,
     pub updated_at: Option<NaiveDateTime>,
 }
+
+// Playlist Model
+#[derive(Debug, Serialize, Deserialize, FromRow)]
+pub struct Playlist {
+    pub id: Uuid,
+    pub user_id: Uuid,
+    pub title: String,
+    pub thumbnail_path: Option<String>,
+    pub created_at: NaiveDateTime,
+    pub updated_at: NaiveDateTime,
+}
+
+// PlaylistTrack Model
+#[derive(Debug, Serialize, Deserialize, FromRow)]
+pub struct PlaylistTrack {
+    pub playlist_id: Uuid,
+    pub track_id: Uuid,
+    pub track_order: i32,
+}
