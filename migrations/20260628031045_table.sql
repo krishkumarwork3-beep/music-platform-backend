@@ -51,3 +51,13 @@ CREATE TABLE playlist_tracks (
     track_order INTEGER NOT NULL,
     PRIMARY KEY (playlist_id, track_id)  -- Composite primary key
 );
+-- Playback History Table
+CREATE TABLE playback_history (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    track_id UUID REFERENCES tracks(id) ON DELETE CASCADE,
+    played_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    duration_played INTERVAL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
