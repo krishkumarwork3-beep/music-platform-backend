@@ -76,3 +76,16 @@ BEGIN
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
+
+-- Create triggers for each table
+CREATE TRIGGER update_users_updated_at
+BEFORE UPDATE ON users
+FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+
+CREATE TRIGGER update_tracks_updated_at
+BEFORE UPDATE ON tracks
+FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+
+CREATE TRIGGER update_audio_files_updated_at
+BEFORE UPDATE ON audio_files
+FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
