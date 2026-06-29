@@ -97,3 +97,11 @@ FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 CREATE TRIGGER update_playlist_tracks_updated_at
 BEFORE UPDATE ON playlist_tracks
 FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+
+CREATE TRIGGER update_playback_history_updated_at
+BEFORE UPDATE ON playback_history
+FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+
+CREATE TRIGGER update_user_favorites_updated_at
+BEFORE UPDATE ON user_favorites
+FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
