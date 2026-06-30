@@ -32,3 +32,15 @@ pub struct RegisterUserDto {
     #[serde(rename = "passwordConfirm")]
     pub password_confirm: String,
 }
+
+fn validate_username(username: &str) -> Result<(), ValidationError> {
+    let re = Regex::new(r"^[a-zA-Z0-9_]+$").unwrap();
+
+    if !re.is_match(username) {
+        return Err(ValidationError::new(
+            "Username can only contain letters, numbers, and underscores",
+        ));
+    }
+
+    Ok(())
+}
