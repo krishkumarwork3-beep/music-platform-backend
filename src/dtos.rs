@@ -122,3 +122,9 @@ pub struct UserLoginResponseDto {
     pub user: FilterUserDto,
     pub token: String,
 }
+
+#[derive(Serialize, Deserialize)]
+pub struct Response {
+    pub status: &'static str,
+    pub message: String,
+}
