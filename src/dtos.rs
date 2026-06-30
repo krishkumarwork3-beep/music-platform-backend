@@ -79,3 +79,16 @@ pub struct RequestQueryDto {
     #[validate(range(min = 1, max = 50))]
     pub limit: Option<usize>,
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct FilterUserDto {
+    pub id: String,
+    pub username: String,
+    pub email: String,
+
+    #[serde(rename = "createdAt")]
+    pub created_at: NaiveDateTime,
+
+    #[serde(rename = "updatedAt")]
+    pub updated_at: NaiveDateTime,
+}
