@@ -56,3 +56,17 @@ pub struct LoginUserDto {
     )]
     pub password: String,
 }
+
+fn validate_identifier(identifier: &str) -> Result<(), ValidationError> {
+    if identifier.contains('@') {
+        if !validate_email(identifier) {
+            return Err(ValidationError::new("Invalid email format"));
+        }
+    } else if identifier.len() < 3 {
+        return Err(ValidationError::new(
+            "Username must be at least 3 characters long",
+        ));
+    }
+
+    Ok(())
+}
