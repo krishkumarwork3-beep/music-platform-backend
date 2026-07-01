@@ -173,3 +173,8 @@ pub struct IncompleteTrackInfo {
     pub uploaded_chunks: i32,
     pub current_chunk: i32,
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct IncompleteTrackInfoResponse {
+    pub incomplete_track_info: Vec<IncompleteTrackInfo>,
+}
