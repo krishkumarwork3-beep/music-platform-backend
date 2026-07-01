@@ -156,3 +156,8 @@ pub struct UserPasswordUpdateDto {
     )]
     pub old_password: String,
 }
+
+#[derive(Serialize)]
+pub struct UploadResponse {
+   pub track_id: uuid::Uuid,
+}
